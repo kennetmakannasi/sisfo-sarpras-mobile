@@ -34,7 +34,6 @@ static Future<void> clearToken() async {
 }
 
 
-  /// Login TANPA header Authorization
   static Future<String?> login(String username, String password) async {
     try {
       final response = await Dio().post(
@@ -49,27 +48,22 @@ static Future<void> clearToken() async {
       );
 
       final token = response.data['data']['token'];
-      ApiService.setToken(token); // <-- ini wajib!
+      ApiService.setToken(token); 
       return null;
     } catch (e) {
       return"Wrong Username or Password";
     }
   }
 
-  /// Logout DENGAN header Authorization
   static Future<void> logout() async {
     try {
-       print("Logout dengan token: ${_dio.options.headers['Authorization']}");
       await _dio.get('/auth/logout');
-      print("Logout sukses");
     } catch (_) {
-      // Jika gagal logout, tetap lanjut
     } finally {
       clearToken();
     }
   }
 
-  /// Fetch daftar barang
 static Future<List> fetchItems({String? category}) async {
   String endpoint = '/user/items';
   if (category != null && category.isNotEmpty) {
@@ -88,29 +82,22 @@ static Future<List> fetchItems({String? category}) async {
 
 
   static Future<List> showItems(String sku) async {
-    print("Authorization Header: ${_dio.options.headers['Authorization']}");
     final response = await _dio.get('/user/items/${sku}');
-    print("Item response: ${response.data}");
     return response.data['data'];
   }
 
-  /// Kirim request peminjaman
   static Future<void> borrowItem(String sku, int quantity) async {
-    print(sku);
     await _dio.post('/user/borrow-request', data: {
       "sku": sku,
       "quantity": quantity,
     });
   }
 
-  /// Fetch riwayat peminjaman
   static Future<List> fetchBorrowHistory() async {
     final response = await _dio.get('/user/borrow-history');
-    print("Item response: ${response.data}");
     return response.data['data'];
   }
 
-  /// Kirim request pengembalian
   static Future<void> returnItem(int borrowId, int returnedQuantity) async {
     await _dio.post('/user/return-request', data: {
       "borrow_id": borrowId,

@@ -25,13 +25,11 @@ class _LoginPageState extends State<LoginPage> {
       final err = await ApiService.login(usernameCtrl.text, passwordCtrl.text);
       
       if (err != null) {
-        // Login gagal
         setState(() {
           error = err;
           isLoading = false;
         });
 
-        // Menampilkan Flushbar untuk error
         Flushbar(
           message: "Login gagal: $error",
           duration: Duration(seconds: 3),
@@ -57,7 +55,6 @@ class _LoginPageState extends State<LoginPage> {
           animationDuration: Duration(milliseconds: 300),
         ).show(context);
       } else {
-        // Jika login berhasil, arahkan ke home page
         context.go('/home');
       }
     }
@@ -80,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                   GoogleFonts.inter(
                     textStyle: TextStyle(
                     fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w600,
                   ), 
                   )           
                 ),
@@ -98,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: InputDecoration(
                     hintText: 'Username',
                     filled: true,
-                    fillColor: Colors.grey[300],
+                    fillColor: Color(0xffebf2f7),
                     hintStyle: GoogleFonts.inter(
                       textStyle: TextStyle(color: Colors.grey[500]),
                     ),
@@ -106,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                     isDense: true,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none, // No border
+                      borderSide: BorderSide.none, 
                     ),
                   ),
                   validator: (value) {
@@ -127,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: InputDecoration(
                     hintText: 'Password',
                     filled: true,
-                    fillColor: Colors.grey[300],
+                    fillColor: Color(0xffebf2f7),
                     hintStyle: 
                     GoogleFonts.inter(textStyle: 
                      TextStyle(color: Colors.grey[500]),
@@ -136,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                     isDense: true,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none, // No border
+                      borderSide: BorderSide.none, 
                     ),
                   ),
                   validator: (value) {
@@ -151,13 +148,13 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: isLoading ? null : login,
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                      backgroundColor: Colors.blue, 
+                      backgroundColor: Color(0xFF60a5fa),
                       padding: EdgeInsets.symmetric(vertical: 18), 
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )
                     ),
-                    child: isLoading ? CircularProgressIndicator() : Text('Login'),
+                    child: isLoading ? Text('Loging In...') : Text('Login'),
                   ), 
                 ),
               ],

@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
           color: Colors.transparent,
           child: AlertDialog(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10), // ← Ubah angka ini sesuai kebutuhan
+              borderRadius: BorderRadius.circular(10), 
             ),
             backgroundColor: Colors.white,
             content: SingleChildScrollView(
@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                         child: Text(item.name,
                           style: GoogleFonts.inter(
                             textStyle: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
+                                fontSize: 18, fontWeight: FontWeight.w500),
                           ),
                         ),
                       ),
@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                     decoration: InputDecoration(
                       hintText: 'Quantity',
                       filled: true,
-                      fillColor: Colors.grey[300],
+                      fillColor: Color(0xffebf2f7),
                       hintStyle: GoogleFonts.inter(
                         textStyle: TextStyle(color: Colors.grey[500]),
                       ),
@@ -162,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                       
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
-                        backgroundColor: Colors.blue,
+                        backgroundColor: Color(0xFF60a5fa),
                         padding: EdgeInsets.symmetric(vertical: 18),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -208,7 +208,7 @@ void logout(BuildContext context) async {
           child: AlertDialog(
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10), // ← Ubah angka ini sesuai kebutuhan
+              borderRadius: BorderRadius.circular(10), 
             ),
             title: Text('Konfirmasi Logout'),
             content: Text('Apakah kamu yakin ingin keluar?'),
@@ -217,14 +217,14 @@ void logout(BuildContext context) async {
                 width: 100,
                 child:  ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white, // latar putih
-                    foregroundColor: Colors.grey[700], // teks abu-abu
+                    backgroundColor: Colors.white, 
+                    foregroundColor: Colors.black, 
                     padding: EdgeInsets.symmetric(vertical: 18, horizontal: 5),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
-                      side: BorderSide(color: Colors.grey), // border abu-abu
+                      side: BorderSide(color: Color(0xffd1d5db)), 
                     ),
-                    elevation: 0, // hilangkan bayangan jika mau lebih clean
+                    elevation: 0, 
                   ),
                   child: Text('Tidak'),
                   onPressed: () => Navigator.of(context).pop(false),
@@ -236,7 +236,7 @@ void logout(BuildContext context) async {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Color(0xFF60a5fa),
                   padding: EdgeInsets.symmetric(vertical: 18, horizontal: 5),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -284,8 +284,8 @@ void logout(BuildContext context) async {
           IconButton(onPressed:  () => logout(context), icon: Icon(Icons.logout)),
         ],
         backgroundColor: Colors.white,
-        elevation: 0, // ⬅️ Hapus bayangan saat scroll
-        surfaceTintColor: Colors.transparent, // ⬅️ Cegah perubahan warna akibat material3
+        elevation: 0, 
+        surfaceTintColor: Colors.transparent,
       ),
       body: SingleChildScrollView(
   child: Padding(
@@ -302,14 +302,14 @@ void logout(BuildContext context) async {
         child: TextButton(
           onPressed: () => loadItems(),
           style: TextButton.styleFrom(
-            backgroundColor: selectedCategory == null ? Colors.blue : Colors.grey[300],
+            backgroundColor: selectedCategory == null ? Color(0xFF60a5fa) : Color(0xffebf2f7),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           ),
           child: Text(
             'Semua',
             style:
             GoogleFonts.inter(
-              textStyle: TextStyle(color: selectedCategory == null ? Colors.white : Colors.black),
+              textStyle: TextStyle(color: selectedCategory == null ? Colors.white : Colors.grey[500]),
           )),
         ),
       ),
@@ -320,11 +320,11 @@ void logout(BuildContext context) async {
                   child: TextButton(
                     onPressed: () => loadItems(category: cat['slug']),
                     style: TextButton.styleFrom(
-                      backgroundColor: isSelected ? Colors.blue : Colors.grey[300],
+                      backgroundColor: isSelected ? Color(0xFF60a5fa) : Color(0xffebf2f7),
                     ),
                     child: Text(cat['name'], 
                     style: GoogleFonts.inter(
-                    textStyle: TextStyle(color: isSelected ? Colors.white : Colors.black))),
+                    textStyle: TextStyle(color: isSelected ? Colors.white : Colors.grey[500]))),
                   ),
                 );
               }).toList(),
@@ -340,7 +340,7 @@ void logout(BuildContext context) async {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.inventory_2, size: 80, color: Colors.grey[400]),
+              Icon(Icons.inventory_2, size: 80, color: Colors.grey[500]),
               SizedBox(height: 20),
               Text(
                 'No items',

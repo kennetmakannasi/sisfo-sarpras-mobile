@@ -41,7 +41,7 @@ class _HistoryPageState extends State<HistoryPage> {
           color: Colors.transparent,
           child: AlertDialog(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10), // ← Ubah angka ini sesuai kebutuhan
+              borderRadius: BorderRadius.circular(10),
             ),
             backgroundColor: Colors.white,
             content: SingleChildScrollView(
@@ -82,9 +82,9 @@ class _HistoryPageState extends State<HistoryPage> {
                     decoration: InputDecoration(
                       hintText: 'Jumlah dikembalikan',
                       filled: true,
-                      fillColor: Colors.grey[300],
+                      fillColor: Color(0xffebf2f7),
                       hintStyle: GoogleFonts.inter(
-                        textStyle: TextStyle(color: Colors.grey[600]),
+                        textStyle: TextStyle(color: Colors.grey[500]),
                       ),
                       contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 14),
                       isDense: true,
@@ -130,7 +130,7 @@ class _HistoryPageState extends State<HistoryPage> {
                       },
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
-                        backgroundColor: Colors.blue,
+                        backgroundColor: Color(0xFF60a5fa),
                         padding: EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -252,16 +252,16 @@ Widget build(BuildContext context) {
                                 decoration: BoxDecoration(
                                   color: getStatusColor(item.status).withOpacity(0.2),
                                   borderRadius: BorderRadius.circular(8),
-                                  border: Border.all(
-                                      color: getStatusColor(item.status), width: 1),
                                 ),
                                 child: Center(
                                   child: Text(
-                                    item.status,
+                                    item.status == 'approved'? 'Approved' :
+                                    item.status == 'rejected'? 'Rejected':
+                                    item.status == 'returned'? 'Returned':
+                                    'Pending',
                                     style: GoogleFonts.inter(
                                       textStyle: TextStyle(
                                         color: getStatusColor(item.status),
-                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                   ),
@@ -272,7 +272,7 @@ Widget build(BuildContext context) {
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     foregroundColor: Colors.white,
-                                    backgroundColor: Colors.blue,
+                                    backgroundColor: Color(0xFF60a5fa),
                                     padding: EdgeInsets.symmetric(vertical: 18, horizontal: 10),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
@@ -298,19 +298,18 @@ Widget build(BuildContext context) {
 }
 
 
-// Fungsi untuk menentukan warna berdasarkan status
 Color getStatusColor(String status) {
   switch (status.toLowerCase()) {
     case 'pending':
-      return const Color.fromARGB(255, 255, 231, 13);
+      return const Color(0xFFeab308);
     case 'approved':
-      return Colors.green;
+      return Color(0xFF22c55e);
     case 'rejected':
-      return Colors.red;
+      return Color(0xFFef4444);
     case 'returned':
-      return Colors.blue;
+      return Color(0xFF1d4ed8);
     default:
-      return Colors.black; // Default jika status tidak terdaftar
+      return Colors.black;
   }
 }
 

@@ -48,7 +48,7 @@ class ItemCard extends StatelessWidget {
                     : '${item.name.substring(0, 11)}...',
                 style: GoogleFonts.inter(
                  textStyle: TextStyle(
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w500,
                   fontSize: 16,
                 ),  
                 )
@@ -63,7 +63,7 @@ class ItemCard extends StatelessWidget {
                   onPressed: onBorrow,
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color(0xFF60a5fa),
                     padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
