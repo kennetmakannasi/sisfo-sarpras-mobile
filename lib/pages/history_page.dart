@@ -236,10 +236,6 @@ Widget build(BuildContext context) {
                                       '${item.item.name.substring(0, 12)}...',
                                       style: GoogleFonts.inter(),
                                     ),
-                              Text(
-                                'Stok: ${item.item.stock.toString()}',
-                                style: GoogleFonts.inter(),
-                              ),
                               SizedBox(height: 8),
                               Text(
                                 'Jumlah: ${item.quantity}',
