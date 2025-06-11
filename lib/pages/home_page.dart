@@ -360,27 +360,21 @@ class _HomePageState extends State<HomePage> {
                     ),
                   )
                 : SingleChildScrollView( 
-                    padding: EdgeInsets.symmetric(horizontal: 10), 
-                    child: GridView.builder(
-                      physics: NeverScrollableScrollPhysics(), 
-                      shrinkWrap: true, 
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, 
-                        crossAxisSpacing: 5,
-                        mainAxisSpacing: 5,
-                        childAspectRatio: 0.7,
+                    padding: EdgeInsets.symmetric(horizontal: 2), 
+                    child: Center(
+                      child: Wrap(
+                         spacing: 9,
+                          runSpacing: 7,
+                          children: items
+                          .map((item) => ItemCard(
+                            item: item,
+                            onBorrow: () => borrowDialog(item),
+                            ))
+                            .toList(),
+                        ),
                       ),
-                      itemCount: items.length,
-                      itemBuilder: (context, index) {
-                        final item = items[index];
-                        return ItemCard(
-                          item: item,
-                          onBorrow: () => borrowDialog(item),
-                        );
-                      },
                     ),
                   ),
-          ),
         ],
       ),
     );
