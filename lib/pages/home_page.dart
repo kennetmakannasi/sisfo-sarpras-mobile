@@ -95,12 +95,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      'Jumlah stok: ${item.stock}',
+                      'Stock: ${item.stock}',
                       style: GoogleFonts.inter(),
                     ),
                     SizedBox(height: 20),
                     Text(
-                      'Kuantitas Peminjaman',
+                      'Borrowing Quantity',
                       style: GoogleFonts.inter(),
                     ),
                     SizedBox(height: 4),
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                           Navigator.pop(context);
                           loadItems();
                           Flushbar(
-                            message: "Peminjaman berhasil dilakukan.",
+                            message: "Borrowing Request Sended",
                             duration: Duration(seconds: 3),
                             backgroundColor: Colors.white,
                             flushbarPosition: FlushbarPosition.TOP,
@@ -167,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         child: Text(
-                          'Kirim',
+                          'Borrow',
                           style: GoogleFonts.inter(),
                         ),
                       ),
@@ -208,8 +208,8 @@ class _HomePageState extends State<HomePage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              title: Text('Konfirmasi Logout'),
-              content: Text('Apakah kamu yakin ingin keluar?'),
+              title: Text('Are you sure?'),
+              content: Text('You will have to log in again if you log out'),
               actions: [
                 SizedBox(
                   width: 100,
@@ -224,7 +224,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       elevation: 0,
                     ),
-                    child: Text('Tidak'),
+                    child: Text('Cancel'),
                     onPressed: () => Navigator.of(context).pop(false),
                   ),
                 ),
@@ -239,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: Text('Ya, Logout'),
+                    child: Text('Logout'),
                     onPressed: () => Navigator.of(context).pop(true),
                   ),
                 )
@@ -270,7 +270,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Daftar Barang',
+          'Items',
           style: GoogleFonts.inter(),
         ),
         actions: [
@@ -304,7 +304,7 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(20)),
                       ),
                       child: Text(
-                        'Semua',
+                        'All Items',
                         style: GoogleFonts.inter(
                           textStyle: TextStyle(
                               color: selectedCategory == null

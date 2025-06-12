@@ -54,7 +54,7 @@ class _HistoryPageState extends State<HistoryPage> {
                     children: [
                       Flexible(
                         child: Text(
-                          'Kembalikan ${item.item.name}',
+                          'Return ${item.item.name}',
                           style: GoogleFonts.inter(
                             textStyle: TextStyle(
                               fontSize: 18,
@@ -72,7 +72,7 @@ class _HistoryPageState extends State<HistoryPage> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    'Jumlah yang ingin dikembalikan',
+                    'Returning Quantity',
                     style: GoogleFonts.inter(),
                   ),
                   SizedBox(height: 4),
@@ -80,7 +80,7 @@ class _HistoryPageState extends State<HistoryPage> {
                     controller: qtyCtrl,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      hintText: 'Jumlah dikembalikan',
+                      hintText: 'Quantity',
                       filled: true,
                       fillColor: Color(0xffebf2f7),
                       hintStyle: GoogleFonts.inter(
@@ -104,7 +104,7 @@ class _HistoryPageState extends State<HistoryPage> {
                         loadHistory();
 
                          Flushbar(
-                        message: "Pengembalian berhasil dilakukan.",
+                        message: "Returning Request Sended",
                         duration: Duration(seconds: 3),
                         backgroundColor: Colors.white,
                         flushbarPosition: FlushbarPosition.TOP,
@@ -136,7 +136,7 @@ class _HistoryPageState extends State<HistoryPage> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      child: Text('Kembalikan'),
+                      child: Text('Return'),
                     ),
                   ),
                 ],
@@ -168,7 +168,7 @@ Widget build(BuildContext context) {
   return Scaffold(
     appBar: AppBar(
       title: Text(
-        'Riwayat Peminjaman',
+        'Borrowing History',
         style: GoogleFonts.inter(),
       ),
       backgroundColor: Colors.white,
@@ -238,7 +238,7 @@ Widget build(BuildContext context) {
                                     ),
                               SizedBox(height: 8),
                               Text(
-                                'Jumlah: ${item.quantity}',
+                                'Quantity: ${item.quantity}',
                                 style: GoogleFonts.inter(),
                               ),
                               SizedBox(height: 8),
@@ -276,7 +276,7 @@ Widget build(BuildContext context) {
                                   ),
                                   onPressed: () => returnDialog(item),
                                   child: Text(
-                                    'Kembalikan',
+                                    'Return',
                                     style: GoogleFonts.inter(),
                                   ),
                                 ),

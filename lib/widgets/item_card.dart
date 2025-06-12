@@ -54,7 +54,7 @@ class ItemCard extends StatelessWidget {
                 )
                
               ),
-              Text('Stok: ${item.stock.toString()}',
+              Text('Stock: ${item.stock.toString()}',
                 style: GoogleFonts.inter(),
               ),
               Padding(
@@ -69,7 +69,7 @@ class ItemCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: Text('Pinjam',
+                  child: Text('Borrow',
                     style: GoogleFonts.inter(),
                   ),
                 ),
